@@ -1,7 +1,8 @@
-const express = require('express')
+import express from 'express';
 const app = express()
-const rssParser = require('rss-parser');
+import rssParser from 'rss-parser';
 const parser = new rssParser();
+const port = process.env.PORT || 3000
 
 app.get('/api/feed/*',function(req,res){
 
@@ -12,6 +13,6 @@ app.get('/api/feed/*',function(req,res){
       })
     })
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+app.listen(port, function () {
+  console.log('Waiting feed request on port ' + port)
 })
